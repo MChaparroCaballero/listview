@@ -2,6 +2,7 @@ package com.example.listviewfinal;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     itemlist.add(new Itemf.Item(R.drawable.fartoon,"Fartoon", "bollo valenciano",false));
     itemlist.add(new Itemf.Item(R.drawable.galletas,"Galletas", "Galletas con pepitas de chocolate",false));
 
-    adapter = new ItemAdapter(itemlist);
+    adapter = new ItemAdapter(itemlist, );
     listview.setAdapter(adapter);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -45,10 +46,8 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
-
-
-
 }
+
 public class ItemAdapter extends BaseAdapter {
     private ArrayList<Itemf.Item> itemList;
     private LayoutInflater inflater;
