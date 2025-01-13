@@ -5,7 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -79,14 +82,19 @@ public class ItemAdapter extends BaseAdapter {
 
             convertView = inflater.inflate(R.layout.activity_itemf, parent, false);
         }
-        TextView textView = convertView.findViewById(R.id.item_text);
-        textView.setText(dataList.get(position));
-        // Aquí deberías configurar las vistas de tu ítem (como TextView, ImageView, etc.)
-        // por ejemplo:
-        // ImageView imageView = convertView.findViewById(R.id.imageView);
-        // imageView.setImageResource(itemList.get(position).getImagenid());
-        // TextView title = convertView.findViewById(R.id.title);
-        // title.setText(itemList.get(position).getTitulo());
+        Itemf.Item itemc =itemList.get(position);
+
+        ImageView imageView = convertView.findViewById(R.id.imageView);
+        CheckBox checkBox = convertView.findViewById(R.id.checkBox);
+        TextView tituloTextview= convertView.findViewById(R.id.titulo);
+        TextView descripcionTextview = convertView.findViewById(R.id.datos);
+
+        /****falta poner los valores de la itemlist***/
+        imageView.setImageResource(itemList.getImagenid());
+        checkBox.setChecked();
+        tituloTextview.setText(itemList.get(titulo));
+        descripcionTextview.setText(itemList.get());
+
 
         return convertView;
     }
