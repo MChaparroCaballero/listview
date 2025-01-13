@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     itemlist.add(new Itemf.Item(R.drawable.fartoon,"Fartoon", "bollo valenciano",false));
     itemlist.add(new Itemf.Item(R.drawable.galletas,"Galletas", "Galletas con pepitas de chocolate",false));
 
-    adapter = new ItemAdapter(itemlist, );
+    adapter = new ItemAdapter(itemlist, MainActivity.this );
     listview.setAdapter(adapter);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -76,9 +76,11 @@ public class ItemAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
+
             convertView = inflater.inflate(R.layout.activity_itemf, parent, false);
         }
-
+        TextView textView = convertView.findViewById(R.id.item_text);
+        textView.setText(dataList.get(position));
         // Aquí deberías configurar las vistas de tu ítem (como TextView, ImageView, etc.)
         // por ejemplo:
         // ImageView imageView = convertView.findViewById(R.id.imageView);
