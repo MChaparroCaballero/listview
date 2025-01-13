@@ -70,13 +70,13 @@ public class ItemAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return position;
+        return itemList.get(position).getImagenid();
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.list_item, parent, false);
+            convertView = inflater.inflate(R.layout.activity_itemf, parent, false);
         }
 
         // Aquí deberías configurar las vistas de tu ítem (como TextView, ImageView, etc.)
