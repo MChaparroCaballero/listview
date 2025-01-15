@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:padding="16dp">
 
-        <!-- ImageView a la izquierda -->
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
@@ -33,10 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical" />
-        <!-- Primer TextView (al lado derecho del ImageView) -->
 
-
-        <!-- Segundo TextView (al lado derecho del primer TextView) -->
         <TextView
             android:id="@+id/datos"
             android:layout_width="wrap_content"

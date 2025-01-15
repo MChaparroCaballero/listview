@@ -7,11 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Segundo TextView -->
 
-    <!-- ListView dentro de ConstraintLayout (ya no necesita LinearLayout) -->
-
-    <!-- Tercer TextView -->
     <TextView
         android:id="@+id/textView2"
         android:layout_width="410dp"

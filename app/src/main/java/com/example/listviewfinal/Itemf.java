@@ -21,7 +21,7 @@ public class Itemf extends AppCompatActivity {
         });
     }
 
-    // Clase Item, corregido el nombre de Iteme a Item
+
     public static class Item {
         private int imagenid;
         private String titulo;
