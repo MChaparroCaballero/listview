@@ -1,60 +1,59 @@
 package com.example.listviewfinal;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import java.util.ArrayList;
 
-public class ItemAdapter extends BaseAdapter {
-    private ArrayList<Itemf.Item> itemList;
-    private LayoutInflater inflater;
+public class ItemAdapter extends ArrayAdapter<Itemf> {
+   private Context context;
+   private int resourceLayout;
 
-    // Constructor
-    public ItemAdapter(ArrayList<Itemf.Item> itemList, MainActivity context) {
-        this.itemList = itemList;
-        this.inflater = LayoutInflater.from(context);
-    }
+   public ItemAdapter(Context context, int resourceLayout, ArrayList<Itemf> itemlist){
+       super(context,resourceLayout,itemlist);
+       this.resourceLayout=resourceLayout;
+       this.context=context;
+   }
 
-    @Override
-    public int getCount() {
-        return itemList.size();
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return itemList.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return itemList.get(position).getImagenid();
-    }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
+       View view =convertView;
+       if(view ==null){
+           LayoutInflater vi;
+           vi= LayoutInflater.from(context);
+           view= vi.inflate(resourceLayout,null);
+       }
 
-            convertView = inflater.inflate(R.layout.activity_itemf, parent, false);
-        }
-        Itemf.Item itemc =itemList.get(position);
+       Itemf itemlist= getItem(position);
 
-        ImageView imageView = convertView.findViewById(R.id.imageView);
-        CheckBox checkBox = convertView.findViewById(R.id.checkBox);
-        TextView tituloTextview= convertView.findViewById(R.id.titulo);
-        TextView descripcionTextview = convertView.findViewById(R.id.datos);
+       if(itemlist != null){
+           TextView textView= view.findViewById(R.id.titulo);
+           TextView textViewdatos= view.findViewById(R.id.datos);
+           ImageView imagen= view.findViewById(R.id.imageView);
 
-        /****falta poner los valores de la itemlist***/
-        imageView.setImageResource(itemc.getImagenid());
-        checkBox.setChecked(itemc.isSelecionado());
-        tituloTextview.setText(itemc.getTitulo());
-        descripcionTextview.setText(itemc.getDatos());
+           if(textView != null){
+               textView.setText(itemlist.getTitulo());
+           }
 
+           if(textViewdatos != null){
+               textViewdatos.setText(itemlist.getDatos());
+           }
 
-        return convertView;
+           if (imagen != null){
+               imagen.setImageResource(itemlist.getImagenid());
+           }
+       }
+        return  view;
     }
 }

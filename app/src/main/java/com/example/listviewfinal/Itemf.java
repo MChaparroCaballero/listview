@@ -6,51 +6,26 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class Itemf extends AppCompatActivity {
+public class Itemf {
+private String titulo;
+private String datos;
+private int imagenid;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_itemf); // Asegúrate de tener este archivo XML
+    public Itemf(String titulo, String datos, int imagenid){
+    this.titulo=titulo;
+    this.datos=datos;
+    this.imagenid=imagenid;
+}
 
-        // Habilitar el ajuste para los márgenes de las barras del sistema
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+    public int getImagenid() {
+        return imagenid;
     }
 
+    public String getTitulo() {
+        return titulo;
+    }
 
-    public static class Item {
-        private int imagenid;
-        private String titulo;
-        private String datos;
-        private boolean selecionado;
-
-        // Constructor
-        public Item(int imagenid, String titulo, String datos, boolean selecionado) {
-            this.imagenid = imagenid;
-            this.titulo = titulo;
-            this.datos = datos;
-            this.selecionado = selecionado;
-        }
-
-        // Getters
-        public int getImagenid() {
-            return imagenid;
-        }
-
-        public String getTitulo() {
-            return titulo;
-        }
-
-        public String getDatos() {
-            return datos;
-        }
-
-        public boolean isSelecionado() {
-            return selecionado;
-        }
+    public String getDatos() {
+        return datos;
     }
 }
